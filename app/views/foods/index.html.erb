@@ -1,7 +1,10 @@
 <h2>Total Hits: <%= @results %></h2>
-<%= @food_facade.each do |food| %>
-  <%= food.description %>
-  <%= food.ingredients %>
-  <%= food.brand_owner %>
-  <%= food.upc %>
+
+<h2>Here's 10 foods that contain your search:</h2>
+<% @food_facade.each do |food| %>
+  <p>Description: <%= food.description %></p>
+  <p>Ingredients: <%= food.ingredients %></p>
+  <p>Brand: <%= food.brand_owner %></p>
+  <p>UPC: <%= food.upc %></p>
+  <br>
 <% end %>
