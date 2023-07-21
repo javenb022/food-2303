@@ -1,0 +1,7 @@
+<h2>Total Hits: <%= @results %></h2>
+<%= @food_facade.each do |food| %>
+  <%= food.description %>
+  <%= food.ingredients %>
+  <%= food.brand_owner %>
+  <%= food.upc %>
+<% end %>
