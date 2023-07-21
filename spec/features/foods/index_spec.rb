@@ -11,8 +11,22 @@ RSpec.describe "Foods Index page" do
       expect(page).to have_content("Total Hits: 55579")
     end
 
-    it "Lists 10 foods that contain the search query" do
+    it "Lists foods that contain the search query" do
+      visit root_path
+      fill_in :q, with: "sweet potatoes"
+      click_button "Search"
 
+      expect(current_path).to eq(foods_path)
+
+      expect(page).to have_content("Description: SWEET POTATOES")
+      expect(page).to have_content("Ingredients: ORGANIC SWEET POTATOES.")
+      expect(page).to have_content("Brand: NOT A BRANDED ITEM")
+      expect(page).to have_content("UPC: 8901020020844")
+
+      expect(page).to have_content("Description: SWEET POTATOES")
+      expect(page).to have_content("Ingredients:")
+      expect(page).to have_content("Brand: NOT A BRANDED ITEM")
+      expect(page).to have_content("UPC: 832298010009")
     end
   end
 end
